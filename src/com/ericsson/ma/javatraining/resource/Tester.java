@@ -5,6 +5,7 @@ public class Tester extends Resource {
         super();
     }
 
+    @Override
     public String work() {
         return "testing";
     }
