@@ -1,16 +1,46 @@
 package com.ericsson.ma.javatraining.resource;
 
 public abstract class Resource {
-    private String id;
+    protected String id;
 
-    private String name;
+    protected String name;
 
-    private String gender;
+    protected String gender;
 
-    private String unit;
+    protected String unit;
+
+    public Resource parse(String rep) {
+        return null;
+    }
 
     public Resource() {
         super();
+        System.out.println("Resource");
+    }
+
+    public Resource(String name) {
+        System.out.println("Resource with name");
+        this.name = name;
+    }
+
+    public Resource withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Resource withId(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public Resource withGender(String gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    public Resource withUnit(String unit) {
+        this.unit = unit;
+        return this;
     }
 
     public String getName() {

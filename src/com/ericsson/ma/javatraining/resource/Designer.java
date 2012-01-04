@@ -8,6 +8,10 @@ public class Designer extends Resource {
         super();
     }
 
+    public Designer(String name) {
+        this.name = name;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public String work() {
@@ -16,5 +20,16 @@ public class Designer extends Resource {
         todo.add("reading");
         System.out.println(todo);
         return "working";
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        Resource resource = (Resource) other;
+        return id.equals(resource.id) && name.equals(resource.name) && gender.equals(resource.gender) && unit.equals(resource.unit);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Designer:%s,%s,%s,%s", id, name, gender, unit);
     }
 }
