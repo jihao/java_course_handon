@@ -1,11 +1,12 @@
 package com.ericsson.ma.javatraining.resource;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class Designer extends Resource {
+    public Designer() {
+        super();
+    }
+
     @Override
-    public void work() {
-        System.out.println(todo);
+    public String work() {
+        return "coding";
     }
 }
