@@ -15,14 +15,14 @@ public class MyClassLoader extends ClassLoader {
         root = rootDir;
     }
 
-    protected Class loadClass(String name, boolean resolve)
+    protected Class<?> loadClass(String name, boolean resolve)
             throws ClassNotFoundException {
 
         // Since all support classes of loaded class use same class loader
         // must check subclass cache of classes for things like Object
 
         // Class loaded yet?
-        Class c = findLoadedClass(name);
+        Class<?> c = findLoadedClass(name);
         if (c == null) {
             try {
                 c = getParent().loadClass(name);
@@ -48,9 +48,9 @@ public class MyClassLoader extends ClassLoader {
                 if (c == null)
                     throw new ClassNotFoundException(name);
 
-
             } catch (IOException e) {
-                throw new ClassNotFoundException("Error reading file: " + filename);
+                throw new ClassNotFoundException("Error reading file: "
+                        + filename);
             }
         }
 
@@ -63,8 +63,7 @@ public class MyClassLoader extends ClassLoader {
         return c;
     }
 
-    private byte[] loadClassData(String filename)
-            throws IOException {
+    private byte[] loadClassData(String filename) throws IOException {
 
         // Create a file object relative to directory provided
         File f = new File(root, filename);

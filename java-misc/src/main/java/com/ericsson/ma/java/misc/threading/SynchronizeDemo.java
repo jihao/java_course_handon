@@ -25,11 +25,9 @@ package com.ericsson.ma.java.misc.threading;
 public class SynchronizeDemo {
     private static int i = 1;
 
-    private synchronized void print() {
-        synchronized (SynchronizeDemo.class) {
-            ++i;
-        }
-        System.out.println("Hello World!");
+    private void print() {
+        ++i;
+        System.out.println("Hello World!" + i);
     }
 
     public static void main(String[] args) {
